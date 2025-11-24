@@ -1,10 +1,25 @@
 {
     "categories": [
       {
-        "title": "Favorites",
+        "title": "PPLSI",
         "links": [
-          { "label": "Google", "url": "https://google.com" },
-          { "label": "Github", "url": "https://github.com" }
+          { "label": "Sumo Logic", "url": "https://service.us2.sumologic.com/" },
+          { "label": "Vanta", "url": "https://app.vanta.com/trust-center" },
+          { "label": "Bitsight", "url": "https://service.bitsighttech.com/" },
+          { "label": "Crowdstrike University", "url": "https://crowdstrike.litmos.com/" },
+          { "label": "ViewDNS", "url": "https://viewdns.info/" },
+          { "label": "Proofpoint", "url": "https://app.emaildefense.proofpoint.com/login" },
+          { "label": "EventLog Lookup", "url": "https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/" },
+          { "label": "LS Member Search", "url": "https://member-search.legalshieldinternal.com/" },
+          { "label": "Data Breach Today News", "url": "https://www.databreachtoday.com/" },
+          { "label": "Group Look Up", "url": "https://groups.shieldatwork.com/employee" },
+          { "label": "Tenable", "url": "https://cloud.tenable.com/tio/app.html" },
+          { "label": "JSON Viewer", "url": "https://jsoneditoronline.org/" },
+          { "label": "Crowdstrike Test Detection Win", "url": "https://supportportal.crowdstrike.com/s/article/ka16T000001ttJaQAI" },
+          { "label": "Crowdstrike Test Detection Mac", "url": "https://supportportal.crowdstrike.com/s/article/ka16T000000wxBSQAY" },
+          { "label": "Masergy(Network Security Tickets)", "url": "https://isc.masergy.com/dashboard" },
+          { "label": "BrickFTP", "url": "https://files.legalshield.com/" },
+          { "label": "Quick Text(kuick.io)", "url": "https://kuick.io/" }          
         ]
       }
     ]
