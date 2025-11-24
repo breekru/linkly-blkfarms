@@ -1,0 +1,12 @@
+{
+    "categories": [
+      {
+        "title": "Favorites",
+        "links": [
+          { "label": "Google", "url": "https://google.com" },
+          { "label": "Github", "url": "https://github.com" }
+        ]
+      }
+    ]
+  }
+  
