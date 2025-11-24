@@ -1,108 +1,14 @@
-body {
-    background: #1e1e1e;
-    color: #f1f1f1;
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-}
-
-.title {
-    font-size: 32px;
-    margin-bottom: 20px;
-    color: #4DB8FF;
-}
-
-#board {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.category {
-    background: #242424;
-    width: 260px;
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0 0 6px rgba(0,0,0,0.4);
-}
-
-.cat-header {
-    display: flex;
-    justify-content: space-between;
-    padding-bottom: 8px;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #333;
-}
-
-.cat-header button,
-.delete-link {
-    background: none;
-    border: none;
-    color: #888;
-    font-size: 18px;
-    cursor: pointer;
-}
-
-.cat-header button:hover,
-.delete-link:hover {
-    color: #ff4444;
-}
-
-.links {
-    margin-bottom: 10px;
-}
-
-.link-item {
-    display: flex;
-    justify-content: space-between;
-    margin: 4px 0;
-}
-
-.link-item a {
-    color: #4DB8FF;
-    text-decoration: none;
-}
-
-.link-item a:hover {
-    text-decoration: underline;
-}
-
-.add-link input {
-    width: 100%;
-    margin: 4px 0;
-    padding: 7px;
-    border-radius: 6px;
-    border: 1px solid #333;
-    background: #1b1b1b;
-    color: #fff;
-}
-
-.add-link-button,
-#add-category-btn {
-    width: 100%;
-    margin-top: 5px;
-    padding: 8px;
-    border: none;
-    background: #4DB8FF;
-    color: black;
-    font-weight: bold;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-#new-category {
-    background: #2c2c2c;
-    width: 260px;
-    padding: 15px;
-    border-radius: 10px;
+/* Global layout */
+* {
+    box-sizing: border-box;
 }
 
 body {
-    background: #1e1e1e;
-    color: #f1f1f1;
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+    font-family: Arial, sans-serif;
+    background: #1e1e1e;
+    color: #f1f1f1;
 }
 
 /* Top bar */
@@ -110,16 +16,16 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
 }
 
-.title {
-    font-size: 32px;
-    color: #4DB8FF;
+.logo {
     margin: 0;
+    font-size: 28px;
+    color: #4DB8FF;
 }
 
-/* Generic buttons */
+/* Buttons */
 .btn-primary {
     background: #4DB8FF;
     color: #000;
@@ -128,6 +34,7 @@ body {
     border-radius: 6px;
     font-weight: bold;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .btn-primary:hover {
@@ -141,13 +48,14 @@ body {
     padding: 8px 14px;
     border-radius: 6px;
     cursor: pointer;
+    font-size: 14px;
 }
 
 .btn-secondary:hover {
     background: #444;
 }
 
-/* Icon buttons in category header / rows */
+/* Icon buttons (small X, +, etc.) */
 .icon-btn {
     background: none;
     border: none;
@@ -161,12 +69,17 @@ body {
     color: #ff6666;
 }
 
-/* Add category dropdown panel */
+/* Hidden helper */
+.hidden {
+    display: none !important;
+}
+
+/* Add category panel */
 .add-category-panel {
     background: #242424;
     padding: 10px;
     border-radius: 8px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
     display: flex;
     gap: 10px;
     align-items: center;
@@ -181,7 +94,7 @@ body {
     color: #fff;
 }
 
-/* Board & categories */
+/* Board and categories */
 #board {
     display: flex;
     flex-wrap: wrap;
@@ -214,6 +127,7 @@ body {
     gap: 4px;
 }
 
+/* Links inside a category */
 .links {
     display: flex;
     flex-direction: column;
@@ -229,6 +143,7 @@ body {
 .link-row a {
     color: #4DB8FF;
     text-decoration: none;
+    overflow-wrap: anywhere;
 }
 
 .link-row a:hover {
@@ -236,24 +151,20 @@ body {
 }
 
 /* Modal */
-.hidden {
-    display: none !important;
-}
-
 .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0, 0, 0, 0.6);
     z-index: 50;
 }
 
 .modal {
     position: fixed;
     inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     z-index: 60;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .modal-content {
@@ -265,23 +176,29 @@ body {
 }
 
 .modal-content h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin: 0 0 10px 0;
 }
 
-.modal-content input {
+.modal-label {
+    display: block;
+    font-size: 13px;
+    margin-top: 8px;
+    margin-bottom: 2px;
+}
+
+.modal-label input {
     width: 100%;
-    margin: 5px 0;
     padding: 7px;
     border-radius: 6px;
     border: 1px solid #333;
     background: #1b1b1b;
     color: #fff;
+    margin-top: 2px;
 }
 
 .modal-actions {
     display: flex;
     justify-content: flex-end;
     gap: 10px;
-    margin-top: 10px;
+    margin-top: 12px;
 }
