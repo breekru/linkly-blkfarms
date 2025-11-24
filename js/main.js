@@ -1,17 +1,17 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const toggleBtn = document.getElementById("toggle-category-panel");
-    const panel = document.getElementById("category-panel");
+    const toggleBtn = document.getElementById("toggle-category-form");
+    const form = document.getElementById("category-form");
     const addBtn = document.getElementById("add-category-btn");
     const input = document.getElementById("new-category-title");
   
     toggleBtn.onclick = () => {
-      panel.classList.toggle("hidden");
+      form.classList.toggle("hidden");
       input.focus();
     };
   
     addBtn.onclick = () => {
       const title = input.value.trim();
-      if (!title) return alert("Enter category name");
+      if (!title) return alert("Enter a category name");
       fetch("add_category.php", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -19,23 +19,25 @@ document.addEventListener("DOMContentLoaded", () => {
       }).then(() => location.reload());
     };
   
-    // Modal logic
+    // Modal
     let currentCat = null;
-    const modal = document.getElementById("add-link-modal");
+    const modal = document.getElementById("modal");
     const backdrop = document.getElementById("modal-backdrop");
-    const labelInput = document.getElementById("link-label");
-    const urlInput = document.getElementById("link-url");
+    const labelInput = document.getElementById("modal-label");
+    const urlInput = document.getElementById("modal-url");
     const saveBtn = document.getElementById("save-link");
     const cancelBtn = document.getElementById("cancel-modal");
   
-    const openModal = (cat) => {
-      currentCat = cat;
-      labelInput.value = "";
-      urlInput.value = "";
-      modal.classList.remove("hidden");
-      backdrop.classList.remove("hidden");
-      labelInput.focus();
-    };
+    document.querySelectorAll(".add-link").forEach(btn => {
+      btn.onclick = () => {
+        currentCat = btn.dataset.cat;
+        labelInput.value = "";
+        urlInput.value = "";
+        modal.classList.remove("hidden");
+        backdrop.classList.remove("hidden");
+        labelInput.focus();
+      };
+    });
   
     const closeModal = () => {
       modal.classList.add("hidden");
@@ -43,18 +45,13 @@ document.addEventListener("DOMContentLoaded", () => {
       currentCat = null;
     };
   
-    document.querySelectorAll(".add-link-btn").forEach(btn => {
-      btn.onclick = () => openModal(btn.dataset.cat);
-    });
-  
     cancelBtn.onclick = closeModal;
     backdrop.onclick = closeModal;
   
     saveBtn.onclick = () => {
       const label = labelInput.value.trim();
       const url = urlInput.value.trim();
-      if (!label || !url) return alert("Enter label and URL");
-  
+      if (!label || !url) return alert("Enter both label and URL");
       fetch("add_link.php", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
@@ -63,7 +60,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
   
     // Delete link
-    document.querySelectorAll(".delete-link-btn").forEach(btn => {
+    document.querySelectorAll(".delete-link").forEach(btn => {
       btn.onclick = () => {
         const cat = btn.dataset.cat;
         const link = btn.dataset.link;
@@ -76,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   
     // Delete category
-    document.querySelectorAll(".delete-cat-btn").forEach(btn => {
+    document.querySelectorAll(".delete-cat").forEach(btn => {
       btn.onclick = () => {
         const cat = btn.dataset.cat;
         if (!confirm("Delete this category?")) return;

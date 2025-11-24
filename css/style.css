@@ -1,12 +1,11 @@
 body {
-    background: #1e1e1e;
-    color: #f1f1f1;
-    font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+    font-family: sans-serif;
+    background: #1e1e1e;
+    color: #f1f1f1;
   }
   
-  /* Top Bar */
   .top-bar {
     display: flex;
     justify-content: space-between;
@@ -20,96 +19,93 @@ body {
     margin: 0;
   }
   
-  .btn-primary,
-  .btn-secondary {
+  .btn {
+    background: #4DB8FF;
+    color: black;
+    border: none;
     padding: 8px 14px;
     border-radius: 6px;
-    border: none;
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .btn.small {
+    padding: 6px 10px;
     font-size: 14px;
   }
   
-  .btn-primary {
-    background: #4DB8FF;
-    color: black;
-  }
-  
-  .btn-secondary {
+  .btn.cancel {
     background: #333;
-    color: white;
+    color: #f1f1f1;
   }
   
-  .icon-btn {
-    background: none;
-    border: none;
-    color: #aaa;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 0 4px;
-  }
-  
-  .icon-btn:hover {
-    color: #ff4444;
-  }
-  
-  /* Category Panel */
-  .category-panel {
-    background: #2a2a2a;
-    padding: 10px;
-    margin-bottom: 15px;
-    border-radius: 8px;
-    display: flex;
-    gap: 10px;
-  }
-  
-  .category-panel input {
-    flex: 1;
-    padding: 7px;
-    background: #1b1b1b;
-    border: 1px solid #444;
-    border-radius: 6px;
-    color: #fff;
-  }
-  
-  /* Hidden utility */
   .hidden {
     display: none !important;
   }
   
-  /* Board */
+  /* Add Category Dropdown */
+  .dropdown {
+    background: #2a2a2a;
+    padding: 10px;
+    border-radius: 6px;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .dropdown input {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #444;
+    border-radius: 6px;
+    background: #1b1b1b;
+    color: #fff;
+  }
+  
+  /* Category Cards */
   #board {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
   }
   
-  .category-card {
+  .card {
     background: #242424;
-    border-radius: 10px;
     padding: 15px;
+    border-radius: 10px;
     width: 260px;
-    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+    box-shadow: 0 0 6px rgba(0,0,0,0.4);
   }
   
-  .category-header {
+  .card-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 8px;
-    border-bottom: 1px solid #444;
     margin-bottom: 10px;
+    font-weight: bold;
   }
   
-  .category-actions {
+  .card-actions {
     display: flex;
-    gap: 6px;
+    gap: 4px;
+  }
+  
+  .icon {
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .icon:hover {
+    color: #ff4444;
   }
   
   .links {
     display: flex;
     flex-direction: column;
-    gap: 6px;
+    gap: 5px;
   }
   
   .link-row {
@@ -131,7 +127,7 @@ body {
   .modal-backdrop {
     position: fixed;
     inset: 0;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0,0,0,0.6);
     z-index: 50;
   }
   
@@ -144,26 +140,21 @@ body {
     align-items: center;
   }
   
-  .modal-content {
-    background: #2e2e2e;
+  .modal-box {
+    background: #2a2a2a;
     padding: 20px;
     border-radius: 10px;
     width: 300px;
   }
   
-  .modal-content h2 {
-    margin-top: 0;
-    margin-bottom: 10px;
-  }
-  
-  .modal-content input {
+  .modal-box input {
     width: 100%;
-    margin: 5px 0;
+    margin: 6px 0;
     padding: 8px;
     background: #1b1b1b;
+    color: white;
     border: 1px solid #444;
     border-radius: 6px;
-    color: white;
   }
   
   .modal-actions {

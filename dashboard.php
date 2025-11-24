@@ -13,32 +13,29 @@ $board = json_decode(file_get_contents($dataPath), true);
 
 <header class="top-bar">
   <h1 class="logo">Linkly</h1>
-  <button id="toggle-category-panel" class="btn-primary">+ Category</button>
+  <button id="toggle-category-form" class="btn">+ Category</button>
 </header>
 
-<section id="category-panel" class="category-panel hidden">
+<div id="category-form" class="dropdown hidden">
   <input type="text" id="new-category-title" placeholder="Category name">
-  <button id="add-category-btn" class="btn-primary">Add</button>
-</section>
+  <button id="add-category-btn" class="btn small">Add</button>
+</div>
 
 <main id="board">
   <?php foreach ($board['categories'] as $catIndex => $cat): ?>
-    <section class="category-card" data-cat="<?= $catIndex ?>">
-      <header class="category-header">
+    <section class="card" data-cat="<?= $catIndex ?>">
+      <div class="card-header">
         <span><?= htmlspecialchars($cat['title']) ?></span>
-        <div class="category-actions">
-          <button class="icon-btn add-link-btn" data-cat="<?= $catIndex ?>">＋</button>
-          <button class="icon-btn delete-cat-btn" data-cat="<?= $catIndex ?>">✕</button>
+        <div class="card-actions">
+          <button class="icon add-link" data-cat="<?= $catIndex ?>">＋</button>
+          <button class="icon delete-cat" data-cat="<?= $catIndex ?>">✕</button>
         </div>
-      </header>
-
+      </div>
       <div class="links">
         <?php foreach ($cat['links'] as $linkIndex => $link): ?>
           <div class="link-row">
             <a href="<?= htmlspecialchars($link['url']) ?>" target="_blank"><?= htmlspecialchars($link['label']) ?></a>
-            <button class="icon-btn delete-link-btn"
-                    data-cat="<?= $catIndex ?>"
-                    data-link="<?= $linkIndex ?>">✕</button>
+            <button class="icon delete-link" data-cat="<?= $catIndex ?>" data-link="<?= $linkIndex ?>">✕</button>
           </div>
         <?php endforeach; ?>
       </div>
@@ -48,14 +45,14 @@ $board = json_decode(file_get_contents($dataPath), true);
 
 <!-- Modal -->
 <div id="modal-backdrop" class="modal-backdrop hidden"></div>
-<div id="add-link-modal" class="modal hidden">
-  <div class="modal-content">
+<div id="modal" class="modal hidden">
+  <div class="modal-box">
     <h2>Add Link</h2>
-    <input type="text" id="link-label" placeholder="Label">
-    <input type="text" id="link-url" placeholder="URL (https://...)">
+    <input type="text" id="modal-label" placeholder="Label">
+    <input type="text" id="modal-url" placeholder="URL (https://...)">
     <div class="modal-actions">
-      <button id="cancel-modal" class="btn-secondary">Cancel</button>
-      <button id="save-link" class="btn-primary">Add</button>
+      <button id="cancel-modal" class="btn cancel">Cancel</button>
+      <button id="save-link" class="btn">Add</button>
     </div>
   </div>
 </div>
