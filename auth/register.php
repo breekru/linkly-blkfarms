@@ -24,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'created' => date("Y-m-d")
             ];
             file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
-            header("Location: login.php");
+            header("Location: auth/login.php");
             exit;
         }
     }
