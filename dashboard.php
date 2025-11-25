@@ -1,10 +1,30 @@
 <?php
 session_start();
 if (!isset($_SESSION['user'])) {
-  header("Location: auth/login.php");
-  exit;
+    header("Location: login.php");
+    exit;
 }
+
+$user = $_SESSION['user'];
+$dataPath = __DIR__ . "/data/bookmarks/{$user}.json";
+
+// If user's bookmark file doesn't exist, create it
+if (!file_exists($dataPath)) {
+    file_put_contents($dataPath, json_encode([
+        "categories" => [
+            [
+                "title" => "Favorites",
+                "links" => [
+                    ["label" => "Google", "url" => "https://google.com"]
+                ]
+            ]
+        ]
+    ], JSON_PRETTY_PRINT));
+}
+
+$board = json_decode(file_get_contents($dataPath), true);
 ?>
+
 
 
 <?php

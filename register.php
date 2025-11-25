@@ -24,6 +24,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'created' => date("Y-m-d")
             ];
             file_put_contents($usersFile, json_encode($users, JSON_PRETTY_PRINT));
+            file_put_contents(__DIR__ . "/data/bookmarks/{$username}.json", json_encode([
+    "categories" => [
+        [
+            "title" => "Favorites",
+            "links" => []
+        ]
+    ]
+], JSON_PRETTY_PRINT));
+
             header("Location: login.php");
             exit;
         }

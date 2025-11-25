@@ -1,5 +1,9 @@
 <?php
-$dataPath = "data/bookmarks.json";
+session_start();
+$user = $_SESSION['user'] ?? null;
+if (!$user) exit;
+
+$dataPath = __DIR__ . "/data/bookmarks/{$user}.json";
 $board = json_decode(file_get_contents($dataPath), true);
 
 $cat = $_POST['cat'];
