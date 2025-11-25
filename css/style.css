@@ -164,3 +164,7 @@ body {
     margin-top: 10px;
   }
   
+  .btn.small {
+  font-size: 13px;
+  padding: 6px 10px;
+}

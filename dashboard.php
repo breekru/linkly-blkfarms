@@ -47,6 +47,13 @@ $board = json_decode(file_get_contents($dataPath), true);
   <button id="toggle-category-form" class="btn">+ Category</button>
 </header>
 
+<div style="margin-bottom: 20px;">
+  <a href="export.php?type=json" class="btn small">Export JSON</a>
+  <a href="export.php?type=csv" class="btn small">Export CSV</a>
+  <a href="import.php" class="btn small">Import</a>
+</div>
+
+
 <div id="category-form" class="dropdown hidden">
   <input type="text" id="new-category-title" placeholder="Category name">
   <button id="add-category-btn" class="btn small">Add</button>
