@@ -1,4 +1,13 @@
 <?php
+session_start();
+if (!isset($_SESSION['user'])) {
+  header("Location: login.php");
+  exit;
+}
+?>
+
+
+<?php
 $dataPath = __DIR__ . "/data/bookmarks.json";
 $board = json_decode(file_get_contents($dataPath), true);
 ?>
@@ -13,6 +22,11 @@ $board = json_decode(file_get_contents($dataPath), true);
 
 <header class="top-bar">
   <h1 class="logo">Linkly</h1>
+  <div style="font-size:14px;">
+  Logged in as <?= htmlspecialchars($_SESSION['user']) ?> |
+  <a href="logout.php" style="color:#4DB8FF;">Logout</a>
+</div>
+
   <button id="toggle-category-form" class="btn">+ Category</button>
 </header>
 
