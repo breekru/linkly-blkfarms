@@ -27,10 +27,7 @@ $board = json_decode(file_get_contents($dataPath), true);
 
 
 
-<?php
-$dataPath = __DIR__ . "/data/bookmarks.json";
-$board = json_decode(file_get_contents($dataPath), true);
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
