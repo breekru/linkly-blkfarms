@@ -1,0 +1,10 @@
+{
+  "users": [
+    {
+      "username": "admin",
+      "password_hash": "$2y$10$exampleHASHwillBeSetOnRegister",
+      "created": "2025-11-24",
+      "role": "admin"
+    }
+  ]
+}
