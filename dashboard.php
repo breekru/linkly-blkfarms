@@ -52,6 +52,9 @@ $board = json_decode(file_get_contents($dataPath), true);
   <a href="export.php?type=csv" class="btn small">Export CSV</a>
   <a href="import.php" class="btn small">Import</a>
 </div>
+<?php if ($_SESSION['user'] === 'admin'): ?>
+  <a href="admin.php" style="margin-left: 10px; color: #4DB8FF;">Admin Panel</a>
+<?php endif; ?>
 
 
 <div id="category-form" class="dropdown hidden">
