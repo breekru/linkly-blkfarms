@@ -5,6 +5,8 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
+
+
 $user = $_SESSION['user'];
 $dataPath = __DIR__ . "/data/bookmarks/{$user}.json";
 
@@ -25,7 +27,23 @@ if (!file_exists($dataPath)) {
 $board = json_decode(file_get_contents($dataPath), true);
 ?>
 
+<?php
+// Pull role from users.json
+$user = $_SESSION['user'];
+$userList = json_decode(file_get_contents(__DIR__ . "/data/users.json"), true);
+$isAdmin = false;
 
+foreach ($userList['users'] as $u) {
+    if ($u['username'] === $user && ($u['role'] ?? '') === 'admin') {
+        $isAdmin = true;
+        break;
+    }
+}
+?>
+
+<?php if ($isAdmin): ?>
+  <a href="admin.php" style="margin-left: 10px; color: #4DB8FF;">Admin Panel</a>
+<?php endif; ?>
 
 
 <!DOCTYPE html>
@@ -52,9 +70,7 @@ $board = json_decode(file_get_contents($dataPath), true);
   <a href="export.php?type=csv" class="btn small">Export CSV</a>
   <a href="import.php" class="btn small">Import</a>
 </div>
-<?php if ($_SESSION['user'] === 'admin'): ?>
-  <a href="admin.php" style="margin-left: 10px; color: #4DB8FF;">Admin Panel</a>
-<?php endif; ?>
+
 
 
 <div id="category-form" class="dropdown hidden">
