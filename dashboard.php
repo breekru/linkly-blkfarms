@@ -71,7 +71,6 @@ foreach ($userList['users'] as $u) {
   <a href="import.php" class="btn small">Import</a>
 </div>
 
-Apple Sauce
 
 <div id="category-form" class="dropdown hidden">
   <input type="text" id="new-category-title" placeholder="Category name">
